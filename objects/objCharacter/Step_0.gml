@@ -51,10 +51,10 @@ if(playstate == "Attack"){
 }
 
 // Add Gravity if vertical speed isn't high enough
-if(vSpeed < 15){
-	vSpeed += gravityForce;
-	vMovement += vSpeed;
-}
+
+vSpeed += gravityForce;
+vMovement += vSpeed;
+
 
 // Check for collision with objSolid
 if(!place_meeting(x + hMovement, y, objSolid)){
