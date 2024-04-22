@@ -1,7 +1,8 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description Playstates & Movements
 
+// While the attack hasn't reached the last frame, keep the playstate and prevent other actions
 if(playstate == "Attack"){
+	// Once at frame 8, create a hitbox
 	if(image_index >= 8 && hitBox > 0){
 		hitBox--;
 		instance_create_depth(x, y, -y, objCharacterHitbox);
@@ -15,25 +16,26 @@ if(playstate == "Attack"){
 
 	// Movement
 	if(keyboard_check(vk_right)){
-		x += hSpeed;
+		hMovement += hSpeed;
 		image_xscale = 1;
 		playstate = "Walk";
 	}
 	if(keyboard_check(vk_left)){
-		x -= hSpeed;
+		hMovement -= hSpeed;
 		image_xscale = -1;
 		playstate = "Walk";
 	}
 	if(keyboard_check(vk_up)){
-		y -= vSpeed;
+		vSpeed = -5
+		vMovement += vSpeed;
 		playstate = "Walk";
 	}
 	if(keyboard_check(vk_down)){
-		y += vSpeed;
+		vMovement += vSpeed;
 		playstate = "Walk";
 	}
 
-	// Attack
+	// Attack Init
 	if(keyboard_check(vk_space)){
 		playstate = "Attack";
 		image_index = 0;
@@ -46,6 +48,22 @@ if(playstate == "Attack"){
 	}else if(playstate == "Idle"){
 		sprite_index = sprKnightIdle;
 	}
+}
+
+// Add Gravity if vertical speed isn't high enough
+if(vSpeed < 15){
+	vSpeed += gravityForce;
+	vMovement += vSpeed;
+}
+
+// Check for collision with objSolid
+if(!place_meeting(x + hMovement, y, objSolid)){
+	x += hMovement;
+}
+if(!place_meeting(x, y + vMovement, objSolid)){
+	y += vMovement;
+}else{
+	vSpeed = 5;
 }
 
 

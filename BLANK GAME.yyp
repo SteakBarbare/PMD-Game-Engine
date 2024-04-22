@@ -36,7 +36,9 @@
   "resources":[
     {"id":{"name":"objCharacter","path":"objects/objCharacter/objCharacter.yy",},},
     {"id":{"name":"objCharacterHitbox","path":"objects/objCharacterHitbox/objCharacterHitbox.yy",},},
+    {"id":{"name":"objSolid","path":"objects/objSolid/objSolid.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"sprRedSquare","path":"sprites/sprRedSquare/sprRedSquare.yy",},},
     {"id":{"name":"sprKnightAttack","path":"sprites/sprKnightAttack/sprKnightAttack.yy",},},
     {"id":{"name":"sprKnightAttackHitbox","path":"sprites/sprKnightAttackHitbox/sprKnightAttackHitbox.yy",},},
     {"id":{"name":"sprKnightIdle","path":"sprites/sprKnightIdle/sprKnightIdle.yy",},},
